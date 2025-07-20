@@ -384,7 +384,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions, issues, or contributions:
 
-- 📧 Email: your.email@example.com
+- 📧 Email: joy.dcj@gmail.com
 - 🐛 Issues: [GitHub Issues](https://github.com/your-username/nsw-bushfire-risk-sentinel2/issues)
 - 📖 Documentation: This README and `example_notebook.ipynb`
 
@@ -394,14 +394,6 @@ For questions, issues, or contributions:
 - **PostGIS Community**: For spatial database capabilities
 - **Python Geospatial Ecosystem**: rasterio, geopandas, folium
 - **NSW Rural Fire Service**: For domain expertise and validation
-
-## 📚 References
-
-1. Tucker, C.J. (1979). Red and photographic infrared linear combinations for monitoring vegetation. _Remote Sensing of Environment_, 8(2), 127-150.
-
-2. Gao, B.C. (1996). NDWI—A normalized difference water index for remote sensing of vegetation liquid water from space. _Remote Sensing of Environment_, 58(3), 257-266.
-
-3. Key, C.H. & Benson, N.C. (2006). Landscape Assessment: Ground measure of severity, the Composite Burn Index; and Remote sensing of severity, the Normalized Burn Ratio. _FIREMON: Fire Effects Monitoring and Inventory System_.
 
 ---
 

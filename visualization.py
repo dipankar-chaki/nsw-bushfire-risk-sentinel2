@@ -194,9 +194,10 @@ class BushfireRiskVisualizer:
         )
         
         # Add additional tile layers
-        folium.TileLayer('Stamen Terrain', name='Terrain').add_to(m)
-        folium.TileLayer('Stamen Toner', name='Toner').add_to(m)
-        folium.TileLayer('CartoDB positron', name='CartoDB').add_to(m)
+        # Note: Stamen tiles have been deprecated, using CartoDB alternatives
+        folium.TileLayer('CartoDB positron', name='Light').add_to(m)
+        folium.TileLayer('CartoDB dark_matter', name='Dark').add_to(m)
+        folium.TileLayer('OpenStreetMap', name='OpenStreetMap').add_to(m)
         
         # Convert arrays to base64 encoded images for overlay
         # This is a simplified approach - in production you'd want to use proper raster overlays

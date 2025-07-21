@@ -2,6 +2,10 @@
 
 A Python-based system for assessing bushfire risk in New South Wales using Sentinel-2 satellite imagery, demonstrating remote sensing and GIS capabilities for environmental monitoring.
 
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-MVP-orange.svg)
+
 ## 🎯 Project Overview
 
 This project implements an end-to-end pipeline for:
@@ -12,7 +16,8 @@ This project implements an end-to-end pipeline for:
 - Creating interactive visualizations
 - Storing results in PostGIS spatial database
 
-**Study Area**: Blue Mountains, NSW (150.0°E to 150.8°E, -34.0°N to -33.5°N)
+**Study Area**: Blue Mountains, NSW (150.0°E to 150.8°E, -34.0°N to -33.5°N)  
+**Assessment Time**: ~1-2 seconds for 40,000 pixels
 
 ## 🚀 Quick Start
 
@@ -27,8 +32,8 @@ This project implements an end-to-end pipeline for:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/nsw-bushfire-risk-sentinel2.git
-   cd nsw-bushfire-risk-sentinel2
+   git clone https://github.com/your-username/bushfire-risk-assessment.git
+   cd bushfire-risk-assessment
    ```
 
 2. **Install dependencies**
@@ -84,7 +89,7 @@ This will generate sample visualizations in the `./output` directory.
 ## 🗂️ Project Structure
 
 ```
-nsw-bushfire-risk-sentinel2/
+bushfire-risk-assessment/
 ├── README.md                    # Project documentation
 ├── requirements.txt             # Python dependencies
 ├── main.py                     # Main entry point and CLI
@@ -93,6 +98,7 @@ nsw-bushfire-risk-sentinel2/
 ├── visualization.py            # Static and interactive mapping
 ├── database.py                 # PostGIS database operations
 ├── example_notebook.ipynb      # Tutorial and demonstration
+├── test_basic.py               # Basic functionality tests
 └── output/                     # Generated results (created at runtime)
     ├── risk_assessment_map.png
     ├── vegetation_indices.png
@@ -332,14 +338,15 @@ output/
 
 Run basic functionality tests:
 
-```python
+```bash
+# Run unit tests
+python test_basic.py
+
 # Test database connection
-from database import test_database_connection
-print("Database test:", test_database_connection())
+python -c "from database import test_database_connection; print('Database test:', test_database_connection())"
 
 # Test quick assessment
-from main import main
-main()  # Runs with default parameters
+python main.py --quick
 ```
 
 ## 🚧 Development Roadmap
@@ -385,7 +392,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions, issues, or contributions:
 
 - 📧 Email: joy.dcj@gmail.com
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/nsw-bushfire-risk-sentinel2/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/your-username/bushfire-risk-assessment/issues)
 - 📖 Documentation: This README and `example_notebook.ipynb`
 
 ## 🙏 Acknowledgments

@@ -403,6 +403,12 @@ def main():
                        help='Skip database operations')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Enable verbose logging')
+    parser.add_argument('--parallel', '-p', action='store_true',
+                       help='Use parallel processing for large-scale analysis')
+    parser.add_argument('--workers', '-w', type=int, default=None,
+                       help='Number of parallel workers (default: auto-detect)')
+    parser.add_argument('--benchmark', '-b', action='store_true',
+                       help='Run performance benchmark')
     
     args = parser.parse_args()
     
@@ -413,6 +419,35 @@ def main():
     logger.info("NSW Bushfire Risk Assessment System")
     logger.info(f"Version: 1.0.0 (MVP)")
     logger.info(f"Study Area: Blue Mountains, NSW")
+    
+    # Handle benchmark mode
+    if args.benchmark:
+        logger.info("Running performance benchmark...")
+        from parallel_processor import ParallelProcessor, demonstrate_parallel_processing
+        
+        results = demonstrate_parallel_processing()
+        logger.info("Benchmark completed!")
+        return 0
+    
+    # Handle parallel processing mode
+    if args.parallel:
+        logger.info("Running in parallel processing mode...")
+        from parallel_processor import ParallelProcessor
+        
+        processor = ParallelProcessor(max_workers=args.workers)
+        
+        # Generate sample large-scale data
+        logger.info("Processing large-scale data with parallel computing...")
+        large_data = np.random.rand(4096, 4096, 4).astype(np.float32)
+        risk_map = processor.process_large_raster_chunked(large_data, chunk_size=512)
+        
+        # Save results
+        output_path = Path(args.output_dir) / "parallel_risk_map.npy"
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        np.save(output_path, risk_map)
+        
+        logger.info(f"Parallel processing completed! Results saved to {output_path}")
+        return 0
     
     if args.quick:
         # Quick assessment using simple functions

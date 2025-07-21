@@ -1,0 +1,9 @@
+# Git attributes for bushfire risk assessment project
+*.py text
+*.md text
+*.sh text
+*.txt text
+*.json text
+*.csv text
+*.yml text
+*.yaml text
